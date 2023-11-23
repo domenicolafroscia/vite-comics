@@ -5,20 +5,20 @@ export default {
 </script>
 
 <template>
-    <main>
+    <div class="product-list">
         <div class="container">
             <h2>&RightArrow; Content goes here &leftarrow;</h2>
         </div>
-    </main>
+    </div>
 </template>
 
 <style scoped lang="scss">
+.product-list {
+    background-color: black;
+    padding: 3rem 0;
 
-    main {
-        background-color: black;
-
-        h2 {
-            color: white;
-        }
+    h2 {
+        color: white;
     }
+}
 </style>

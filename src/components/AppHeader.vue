@@ -73,6 +73,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 1rem;
 
     .logo {
         text-align: center;
@@ -92,7 +93,7 @@ header {
             text-decoration: none;
             color: black;
             padding: 1rem;
-            padding-bottom: 2rem;
+            padding-bottom: 3rem;
 
             &:hover {
                 color: $primary;
