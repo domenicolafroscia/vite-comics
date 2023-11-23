@@ -22,29 +22,28 @@ export default {
             ],
             footerBottom: [
                 {
-                    icon: "facebook",
-                    link: "www.facebook.com"
+                    icon: "facebook"
                 },
                 {
-                    icon: "twitter",
-                    link: "www.twitter.com"
+                    icon: "twitter"
                 },
                 {
-                    icon: "youtube",
-                    link: "www.youtube.com"
+                    icon: "youtube"
                 },
                 {
-                    icon: "pinterest",
-                    link: "www.pinterest.com"
+                    icon: "pinterest"
                 },
                 {
-                    icon: "periscope",
-                    link: "www.periscope.com"
+                    icon: "periscope"
                 },
             ],
         };
     },
-   
+    methods: {
+        getImagePath(img) {
+            return new URL(`../assets/img/footer-${img}.png`, import.meta.url).href;
+        },
+    },
 };
 </script>
 
@@ -64,13 +63,28 @@ export default {
     </div>
     <div class="footer-bottom">
         <div class="container">
-
+            <div class="space-between">
+                <div class="btn">
+                    <button>SING-UP NOW!</button>
+                </div>
+                <div class="social">
+                    <div class="title">
+                        <h4>FOLLOW US</h4>
+                    </div>
+                    <ul>
+                        <li v-for="list in footerBottom">
+                            <a href=""><img :src=getImagePath(list.icon) :alt="`Icon of ${list.icon}`"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <style scoped lang="scss">
 @use "../style/partials/mixin" as *;
+@use "../style/partials/variables" as *;
 
 .footer-top {
     background-image: url('../assets/img/footer-bg.jpg');
@@ -79,20 +93,23 @@ export default {
 
     .footer-container {
         display: flex;
-        padding: 2rem 0;
-        gap: 1rem;
+        gap: 2rem;
 
-        h4 {
-            margin-bottom: 1rem;
-        }
+        .left {
+            margin-top: 2rem;
 
-        ul {
-            list-style: none;
+            h4 {
+                margin-bottom: 1rem;
+            }
 
-            a {
-                color: gray;
-                font-size: 0.7rem;
-                text-decoration: none;
+            ul {
+                list-style: none;
+
+                a {
+                    color: gray;
+                    font-size: 0.7rem;
+                    text-decoration: none;
+                }
             }
         }
 
@@ -102,6 +119,49 @@ export default {
             background-image: url(../assets/img/dc-logo-bg.png);
             width: 60%;
             height: 360px;
+            margin-left: 5rem;
         }
     }
-}</style>
+
+}
+
+.footer-bottom {
+    background-color: $footer-color;
+    padding: 2rem 0;
+    .space-between {
+        @include flex(null, space-between, center);
+
+        button {
+            border: 2px solid $primary;
+            padding: 0.7rem 1rem;
+            background-color: $footer-color;
+            color: white;
+
+            &:hover {
+                background-color: lighten($footer-color, 20%);
+                cursor: pointer;
+            }
+        }
+
+        .social {
+            @include flex(null, space-between, center);
+
+            h4 {
+                color: $primary;
+            }
+
+            ul {
+                @include flex(row, space-between, center);
+                gap: 1rem;
+                margin-left: 1rem;
+                list-style: none;
+
+                img {
+                    width: 30px;
+                }
+            }
+        }
+    }
+
+}
+</style>
