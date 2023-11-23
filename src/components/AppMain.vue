@@ -57,13 +57,13 @@ main {
         margin: 0 auto;
 
         ul {
-            @include flex();
+            @include flex(row, center, center);
             list-style: none;
             gap: 4rem;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
 
             a {
-                @include flex();
+                @include flex(row, center, center);
                 text-decoration: none;
                 color: white;
                 gap: 1rem;

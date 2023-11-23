@@ -84,7 +84,7 @@ header {
     }
 
     ul {
-        @include flex();
+        @include flex(row, center, center);
         list-style: none;
         gap: 1rem;
         font-size: 0.8rem;
