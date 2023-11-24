@@ -48,38 +48,40 @@ export default {
 </script>
 
 <template>
-    <div class="footer-top">
-        <div class="container">
-            <div class="footer-container">
-                <div class="left" v-for="item in footerTop">
-                    <h4>{{ item.title }}</h4>
-                    <ul>
-                        <li v-for="list in item.list"><a href="">{{ list }}</a></li>
-                    </ul>
-                </div>
-                <div class="right"></div>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="space-between">
-                <div class="btn">
-                    <button>SING-UP NOW!</button>
-                </div>
-                <div class="social">
-                    <div class="title">
-                        <h4>FOLLOW US</h4>
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-container">
+                    <div class="left" v-for="item in footerTop">
+                        <h4>{{ item.title }}</h4>
+                        <ul>
+                            <li v-for="list in item.list"><a href="">{{ list }}</a></li>
+                        </ul>
                     </div>
-                    <ul>
-                        <li v-for="list in footerBottom">
-                            <a href=""><img :src=getImagePath(list.icon) :alt="`Icon of ${list.icon}`"></a>
-                        </li>
-                    </ul>
+                    <div class="right"></div>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="space-between">
+                    <div class="btn">
+                        <button>SING-UP NOW!</button>
+                    </div>
+                    <div class="social">
+                        <div class="title">
+                            <h4>FOLLOW US</h4>
+                        </div>
+                        <ul>
+                            <li v-for="list in footerBottom">
+                                <a href=""><img :src=getImagePath(list.icon) :alt="`Icon of ${list.icon}`"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </template>
 
 <style scoped lang="scss">
@@ -128,6 +130,7 @@ export default {
 .footer-bottom {
     background-color: $footer-color;
     padding: 2rem 0;
+
     .space-between {
         @include flex(null, space-between, center);
 
